@@ -1,0 +1,85 @@
+:host {
+  align-items: center;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  width: 100%;
+
+  > svg {
+    height: calc(100% - 20px);
+    width: calc(100% - 20px);
+  }
+}
+
+* {
+  transition: all 150ms ease-in-out;
+}
+
+.active {
+  stroke-width: 4;
+}
+
+.gray {
+  fill: #666;
+}
+
+.body {
+  fill: #666;
+  font-size: 11px;
+}
+
+.blue {
+  fill: none;
+  stroke: #1172ba;
+}
+
+.blue-fill, .open-blue {
+  fill: #1172ba;
+}
+
+.teal {
+  fill: none;
+  stroke: #79c3ec;
+}
+
+.teal-fill, .open-teal {
+  fill: #79c3ec;
+}
+
+.dr {
+  fill: #88CCEE;
+}
+
+.off, .closed {
+  fill: #b4b4b4;
+}
+
+.evoff {
+  fill: #c9c9c9;
+}
+
+.evon {
+  fill: #f26523;
+}
+
+.acon {
+  fill: #88CCEE;
+}
+
+.acoff {
+  fill: #4481C1;
+}
+
+.chart-title {
+  font-size: 30px;
+  color: #3d9bce;
+  line-height:1em; 
+}
+
+.chart-df {
+  color: #65C202;
+}
+
+.df {
+  color: #64C204;
+}

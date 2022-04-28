@@ -1,0 +1,77 @@
+@use '~@angular/material' as mat;
+
+$typography: mat.define-typography-config(
+  $font-family: 'Roboto'
+);
+@include mat.core($typography);
+
+@mixin font-face($name, $path, $weight: null, $style: null) {
+  @font-face {
+    font-family: quote($name);
+    font-style: $style;
+    font-weight: $weight;
+    src: url(quote($path + '.ttf')) format('ttf');
+  }
+}
+
+@mixin font-face-woff2($name, $path, $weight: null, $style: null) {
+  @font-face {
+    font-family: quote($name);
+    font-style: $style;
+    font-weight: $weight;
+    src: url(quote($path + '.woff2')) format('woff2');
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+  position: relative;
+}
+
+@include font-face(SourceSansPro, './assets/fonts/Source_Sans_Pro/SourceSansPro-Regular', 400, normal);
+@include font-face(SourceSansPro, './assets/fonts/Source_Sans_Pro/SourceSansPro-SemiBold', 600, normal);
+
+@include font-face-woff2('Material Icons', './assets/fonts/MaterialIcons/MaterialIcons-Regular', normal, normal);
+
+.medium {
+  font-family: SourceSansPro;
+  font-weight: 500;
+}
+
+.semibold {
+  font-family: SourceSansPro;
+  font-weight: 600;
+}
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+}
+
+.df {
+  fill: #64C204;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+}
+
+.base {
+  fill: #3d9bce;
+}

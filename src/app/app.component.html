@@ -1,0 +1,33 @@
+<div id="vis">
+  <div>
+    <app-graphic type="baseline" [data]="baseData"></app-graphic>
+  </div>
+  <div class="legend-table">
+
+    <div class="legend-div"><div class="square legend-evon"></div> Electric Vehicle &nbsp;<strong>ON</strong></div>
+    <div class="legend-div"><div class="square legend-evoff"></div> Electric Vehicle &nbsp;<strong>OFF</strong></div>
+    <div class="legend-div"><div class="square legend-acon"></div> Air-conditioning &nbsp;<strong>ON</strong></div>
+    <div class="legend-div"><div class="square legend-acoff"></div> Air-conditioning &nbsp;<strong>OFF</strong></div>
+
+    <table class="stats-table">
+      <tr><th>Buildings Total</th><td>200</td></tr>
+      <tr><th>Offices</th><td>2</td></tr>
+      <tr><th>Single Family Homes</th><td>30</td></tr>
+      <tr><th>Buildings with AC</th><td>19</td></tr>
+      <tr><th>Electric Vehicles</th><td>59</td></tr>
+    </table>
+
+  </div>
+  <div>
+    <app-graphic type="demand flexibility" [data]="dfData"></app-graphic>
+  </div>
+</div>
+<div id="charts" fxLayout="row">
+  <div fxFlex="80" fxLayout="column" fxFlexOffset="10">
+    <div id="chart-power" fxFlex="50" fxFlexOffset="2" class="chart"></div>
+  </div>
+</div>
+<div id="controls">
+  <mat-icon aria-hidden="false" (click)="togglePlaying()">{{ playing ? 'pause' : 'play_arrow' }}</mat-icon>
+  <mat-slider class="disable-animation" [min]="timeIndex.min" [max]="timeIndex.max" [(ngModel)]="timeIndex.current" (input)="onSliderChange($event)"></mat-slider>
+</div>

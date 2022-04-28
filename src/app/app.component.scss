@@ -1,0 +1,163 @@
+$controlHeight: 68px;
+$chartHeight: calc(40% - #{$controlHeight});
+
+:host {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+
+#controls {
+  align-items: center;
+  background-color: #565656;
+  bottom: 0;
+  color: #fff;
+  display: flex;
+  padding: 10px;
+  position: absolute;
+  width: 100%;
+
+  * {
+    user-select: none;
+  }
+
+  mat-icon {
+    $size: 48px;
+    cursor: pointer;
+    font-size: $size;
+    height: $size;
+    width: $size;
+  }
+
+  mat-slider {
+    $color: #ffd740;
+    margin-left: 20px;
+    margin-right: 20px;
+    width: 100%;
+
+    &.mat-slider::ng-deep {
+      .mat-slider-track-fill {
+        background-color: $color;
+      }
+
+      .mat-slider-thumb {
+        height: 30px;
+        width: 30px;
+        background-color: $color;
+        border: 2px solid $color;
+        bottom: -15px;
+        right: -15px;
+      }
+    }
+
+    &.mat-slider-min-value:not(.mat-slider-thumb-label-showing)::ng-deep .mat-slider-thumb {
+      background-color: $color;
+      border: 2px solid $color;
+    }
+  }
+
+  ::ng-deep .disable-animation * {
+    transition: none !important;
+  }
+}
+
+#vis {
+  background-color: #fff;
+  border-bottom: 1px #8e8e8e solid;
+  display: flex;
+  height: 60%;
+
+  > div {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    width: 45%;
+
+    &:first-child {
+      border-right: 1px #8e8e8e solid;
+    }
+
+    &:last-child {
+      border-left: 1px #8e8e8e solid;
+    }
+  }
+
+  > .legend-table {
+      width: 15%;  
+      padding: 15px;
+      padding-top: 7em;
+      display: unset;
+      font-size: 1.3em;
+    }
+
+  .legend-div {
+      display: block;
+      padding-bottom: 5px; 
+  }
+
+  .stats-table {
+    background-color: #eee;
+    margin-top: 5em;
+    align-items: left;
+    justify-content: left;
+    font-size: 0.9em;
+
+    th {
+      text-align: left;
+      padding-left: 10px;
+      padding-right: 30px;
+      font-weight: normal;
+      border-bottom: 1px solid #fff;
+    }
+    td {
+      border-bottom: 1px solid #fff;
+      padding-right: 10px;
+    }
+  }
+
+  .square {
+    min-width: 10px;
+    width: 10px;
+    height: 10px;
+    margin: 0px 5px;
+    display: inline-block;
+  }
+  .legend-evon {
+    background-color: #f26523;
+  }
+  .legend-evoff {
+    background-color: #c9c9c9;
+  }
+  .legend-acon {
+    background-color: #88CCEE;
+  }
+  .legend-acoff {
+    background-color: #4481C1;
+  }
+}
+
+#charts {
+  background-color: #fff;
+  border-top: 1px #8e8e8e solid;
+  bottom: $controlHeight;
+  height: $chartHeight;
+  //position: absolute;
+  width: 100%;
+
+  > div:first-child {
+    width: 80%;
+  }
+
+  > div:last-child {
+    right: 0;
+    width: 40%;
+  }
+}
+
+.chart {
+  overflow: hidden;
+
+  ::ng-deep svg g[opacity='0.3'] {
+    display: none;
+  }
+}
