@@ -26,7 +26,7 @@ export class AppComponent implements OnInit, AfterViewInit {
   timeIndex = {
     current: 0,
     min: 0,
-    max: 1440
+    max: 840
   };
   dataDR: Record[] = [];
   data: Record[] = [];
@@ -292,8 +292,8 @@ export class AppComponent implements OnInit, AfterViewInit {
 
     const kwAxis = chart.yAxes.push(new am4charts.ValueAxis());
     kwAxis.cursorTooltipEnabled = false;
-    kwAxis.max = 1400000;
-    kwAxis.min = 0;
+    kwAxis.max = 150000000;
+    kwAxis.min = 25000;
     kwAxis.renderer.grid.template.disabled = true;
     kwAxis.renderer.labels.template.fill = am4core.color('#666');
     kwAxis.renderer.minGridDistance = 20;
@@ -306,7 +306,7 @@ export class AppComponent implements OnInit, AfterViewInit {
     kwAxis.strictMinMax = true;
     kwAxis.title.fill = am4core.color('#666');
     kwAxis.title.fontSize = 20;
-    kwAxis.title.text = 'kW';
+    kwAxis.title.text = 'J'; // 'kW'
     kwAxis.title.userClassName = 'condensed';
     kwAxis.userClassName = 'condensed';
 
@@ -316,7 +316,8 @@ export class AppComponent implements OnInit, AfterViewInit {
     basePowerSeries.dataItems.template.locations.dateX = 0;
     basePowerSeries.name = 'Baseline';
     basePowerSeries.strokeWidth = 3;
-    basePowerSeries.tooltipText = 'Baseline: {valueY.formatNumber(\'#,###.\')} kW';
+    //basePowerSeries.tooltipText = 'Baseline: {valueY.formatNumber(\'#,###.\')} kW';
+    basePowerSeries.tooltipText = 'Baseline: {valueY.formatNumber(\'#,###.\')} J';
 
     const dfPowerSeries = chart.series.push(new am4charts.LineSeries());
     dfPowerSeries.dataFields.dateX = 'Time';
@@ -324,11 +325,13 @@ export class AppComponent implements OnInit, AfterViewInit {
     dfPowerSeries.dataItems.template.locations.dateX = 0;
     dfPowerSeries.name = 'DR';
     dfPowerSeries.strokeWidth = 3;
-    dfPowerSeries.tooltipText = 'DR: {valueY.formatNumber(\'#,###.\')} kW';
+    // dfPowerSeries.tooltipText = 'DR: {valueY.formatNumber(\'#,###.\')} kW';
+    dfPowerSeries.tooltipText = 'DR: {valueY.formatNumber(\'#,###.\')} J';
+
 
     let rangeDR = dateAxis.axisRanges.create();
-    rangeDR.date = new Date("2017-09-26 12:00:00");
-    rangeDR.endDate = new Date("2017-09-26 17:59:00");
+    rangeDR.date = new Date("09/26 12:00:00");
+    rangeDR.endDate = new Date("09-26 17:59:00");
     rangeDR.axisFill.fill = am4core.color("#64C204");
     rangeDR.axisFill.fillOpacity = 0.1;
     rangeDR.grid.strokeOpacity = 0;
@@ -363,8 +366,9 @@ export class AppComponent implements OnInit, AfterViewInit {
     chart.legend.userClassName = 'condensed';
 
     let title = chart.titles.create();
-    title.text = "Community Aggregate Demand (kW)";
-    title.fontSize = 25;
+    // title.text = "Community Aggregate Demand (kW)";
+    title.text = "Community Electricity Consumption (J)";
+    title.fontSize = 22;
     title.marginBottom = 30;
   }
 
