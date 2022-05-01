@@ -292,8 +292,8 @@ export class AppComponent implements OnInit, AfterViewInit {
 
     const kwAxis = chart.yAxes.push(new am4charts.ValueAxis());
     kwAxis.cursorTooltipEnabled = false;
-    kwAxis.max = 150000000;
-    kwAxis.min = 25000;
+    kwAxis.max = 50;
+    kwAxis.min = 0;
     kwAxis.renderer.grid.template.disabled = true;
     kwAxis.renderer.labels.template.fill = am4core.color('#666');
     kwAxis.renderer.minGridDistance = 20;
@@ -306,7 +306,7 @@ export class AppComponent implements OnInit, AfterViewInit {
     kwAxis.strictMinMax = true;
     kwAxis.title.fill = am4core.color('#666');
     kwAxis.title.fontSize = 20;
-    kwAxis.title.text = 'J'; // 'kW'
+    kwAxis.title.text = 'kWh'; // 'kW'
     kwAxis.title.userClassName = 'condensed';
     kwAxis.userClassName = 'condensed';
 
@@ -317,7 +317,7 @@ export class AppComponent implements OnInit, AfterViewInit {
     basePowerSeries.name = 'Baseline';
     basePowerSeries.strokeWidth = 3;
     //basePowerSeries.tooltipText = 'Baseline: {valueY.formatNumber(\'#,###.\')} kW';
-    basePowerSeries.tooltipText = 'Baseline: {valueY.formatNumber(\'#,###.\')} J';
+    basePowerSeries.tooltipText = 'Baseline: {valueY.formatNumber(\'#,###.\')} kWh';
 
     const dfPowerSeries = chart.series.push(new am4charts.LineSeries());
     dfPowerSeries.dataFields.dateX = 'Time';
@@ -326,7 +326,7 @@ export class AppComponent implements OnInit, AfterViewInit {
     dfPowerSeries.name = 'DR';
     dfPowerSeries.strokeWidth = 3;
     // dfPowerSeries.tooltipText = 'DR: {valueY.formatNumber(\'#,###.\')} kW';
-    dfPowerSeries.tooltipText = 'DR: {valueY.formatNumber(\'#,###.\')} J';
+    dfPowerSeries.tooltipText = 'DR: {valueY.formatNumber(\'#,###.\')} kWh';
 
 
     let rangeDR = dateAxis.axisRanges.create();
@@ -367,7 +367,7 @@ export class AppComponent implements OnInit, AfterViewInit {
 
     let title = chart.titles.create();
     // title.text = "Community Aggregate Demand (kW)";
-    title.text = "Community Electricity Consumption (J)";
+    title.text = "Community Aggregate Electricity (kWh)";
     title.fontSize = 22;
     title.marginBottom = 30;
   }

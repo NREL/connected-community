@@ -842,4 +842,12 @@
 <rect id="_x3C_text_x5F_underline_x3E_" x="15" y="28.5" class="st0" *ngIf="type !== 'demand flexibility'" width="621.1" height="2"  />
 <text transform="matrix(1 0 0 1 240.5436 22.1509)" class="st8 st9" [ngClass]="{'df': type === 'demand flexibility'}" *ngIf="type === 'demand flexibility'"> Modified - DR </text>
 <text transform="matrix(1 0 0 1 277.5436 22.1509)" class="st8 st9" *ngIf="type !== 'demand flexibility'">Baseline</text>
+<rect
+   style="opacity:0.10;fill:#64c204;fill-opacity:1;fill-rule:evenodd;stroke-width:0.965747"
+   id="rect545"
+   width="633.15338"
+   height="470.76968"
+   x="12.647015"
+   y="34.892246"
+   transform="matrix(0.9999969,0.00248977,-0.00279793,0.99999609,0,0)" *ngIf="type === 'demand flexibility' && data.drOn === 1" />
 </svg>
