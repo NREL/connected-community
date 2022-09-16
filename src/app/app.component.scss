@@ -1,5 +1,5 @@
 $controlHeight: 68px;
-$chartHeight: calc(60% - #{$controlHeight});
+$chartHeight: calc(55% - #{$controlHeight});
 
 :host {
   display: block;
@@ -61,11 +61,24 @@ $chartHeight: calc(60% - #{$controlHeight});
   }
 }
 
-#vis {
+#header {
   background-color: #fff;
-  border-bottom: 1px #8e8e8e solid;
   display: flex;
-  height: 60%;
+  height: 3%;
+  padding-top:10px;
+
+  .header-div {
+    border-bottom: 2px solid #E6E6E6;
+  }
+  .dr-line {
+    border-color: #64C204;
+  }
+
+  .text-header {
+    font-family:'Roboto-Regular';
+    font-size:22.7511px;
+    text-transform: capitalize;
+  }
 
   > div {
     align-items: center;
@@ -73,6 +86,14 @@ $chartHeight: calc(60% - #{$controlHeight});
     justify-content: center;
     width: 45%;
 
+    .dr-header {
+      color: #64C204;
+      fill: #64C204;
+    }
+
+
+
+/*
     &:first-child {
       border-right: 1px #8e8e8e solid;
     }
@@ -80,6 +101,7 @@ $chartHeight: calc(60% - #{$controlHeight});
     &:last-child {
       border-left: 1px #8e8e8e solid;
     }
+*/
   }
 
   > .legend-table {
@@ -93,6 +115,59 @@ $chartHeight: calc(60% - #{$controlHeight});
   .legend-div {
       display: block;
       padding-bottom: 5px; 
+  }
+}
+
+#vis {
+  background-color: #fff;
+  border-bottom: 1px #8e8e8e solid;
+  display: flex;
+  height: 65%;
+
+  > div {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    width: 40%;
+
+  }
+
+  > .legend-table {
+      width: 50%;  
+      padding: 15px;
+      padding-top: 3em;
+      display: unset;
+      font-size: 1.3em;
+      align-items: center;
+      justify-content: center;
+    }
+
+  .legend-buildings {
+    padding: 15px;
+    p {
+      text-align: center;
+      line-height: 1.2em;
+    }
+  }
+
+  .legend-ev {
+    padding: 15px;
+  }
+
+  .graybg {
+    background-color: #F2F2F2;
+    min-height:80px;
+    text-align: center;
+  }
+
+  .graytext {
+    color: #8B8B8B;
+    font-size: 1.3em;
+    font-weight: normal;
+  }
+
+  .legend-icon {
+    height: 50px;
   }
 
   .stats-table {
@@ -134,6 +209,10 @@ $chartHeight: calc(60% - #{$controlHeight});
   .legend-acoff {
     background-color: #4481C1;
   }
+}
+
+.big-text {
+  font-size: 1.5em;
 }
 
 #charts {

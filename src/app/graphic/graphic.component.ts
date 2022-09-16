@@ -28,4 +28,28 @@ export class GraphicComponent implements OnInit, OnChanges {
     this.drColor = chroma.scale(['#f00', '#eec720', '#079247']).mode('lab')(percent / 100).hex();
   }
 
+  getClassOf(val:number) {
+    if (val <= -2.5) {
+      return 'comfort1';
+    } else if (val > -2.5 && val <= -1.5) {
+      return 'comfort2';
+    } else if (val > -1.5 && val <= -0.50) {
+      return 'comfort3';
+    } else if (val > -0.50 && val <= 0.50) {
+      return 'comfort4';
+    } else if (val > 0.50 && val <= 1.5) {
+      return 'comfort5';
+    } else if (val > 1.5 && val <= 2) {
+      return 'comfort6';  
+    } else if (val > 2 && val <= 2.5) {
+      return 'comfort7';
+    } else if (val > 2.5) {
+      return 'comfort8';
+    }
+      else {
+      // return gray
+      return 'comfortNA' 
+    }
+  }
+
 }

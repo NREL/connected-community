@@ -292,7 +292,7 @@ export class AppComponent implements OnInit, AfterViewInit {
 
     const kwAxis = chart.yAxes.push(new am4charts.ValueAxis());
     kwAxis.cursorTooltipEnabled = false;
-    kwAxis.max = 50;
+    kwAxis.max = 100000;
     kwAxis.min = 0;
     kwAxis.renderer.grid.template.disabled = true;
     kwAxis.renderer.labels.template.fill = am4core.color('#666');
