@@ -150,9 +150,15 @@ p {
 
   .legend-buildings {
     padding: 15px;
+    text-align: center;
+    align-items: center;
+    
     p {
       text-align: center;
       line-height: 1.2em;
+    }
+    img {
+      text-align: center;
     }
   }
 
@@ -177,15 +183,9 @@ p {
     height: 50px;
   }
 
-  .thermal-div {
-    text-align:center;
-    align-items: center;
-    justify-content: center;
-  }
-  
   .thermal-legend {
-    height: 50%;
-    width: 50%;
+    height: 46%;
+    width: 46%;
   }
 
   .thermal-text {
