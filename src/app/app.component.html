@@ -3,7 +3,7 @@
     <h2 class="text-header">BASELINE</h2>
   </div>
   <div class="legend-table"></div>
-  <div class="header-div dr-line">
+  <div class="header-div">
     <h2 class="text-header dr-header">MODIFIED - DR</h2>
   </div>
 
@@ -16,14 +16,14 @@
     <div class="legend-buildings">
       <p><span class="big-text">148</span>  Buildings</p>
     </div>
-    <div class="legend-ev" fxLayout="column" fxLayoutGap="5px">
+    <div fxLayout="column" fxLayoutGap="5px">
       <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="5px">
         <div class="graybg" fxFlex="35" fxLayout="row" fxLayoutAlign="space-between center">
           <div fxFlex="40" ><img class="legend-icon" src="assets/img/evcharging.svg" alt="ev charging icon" /></div>
           <div fxFlex="30" class="big-text">120</div>
         </div>
         <div class="graybg" fxFlex="30" fxLayout="row" fxLayoutAlign="space-between center">
-          <p class="graytext">Electric Vehicles Charging</p>
+          <p class="graytext" style="text-align: center;">Electric Vehicles Charging</p>
         </div>
         <div class="graybg" fxFlex="35" fxLayout="row" fxLayoutAlign="space-between center">
           <div fxFlex="30" class="big-text">0</div>
@@ -43,8 +43,13 @@
           <div fxFlex="40" ><img class="legend-icon" src="assets/img/acon.svg" alt="AC on icon" /></div>
         </div>         
       </div>
-      <div class="legend-buildings">
-        <p>Thermal Comfort Range</p>
+      <div fxLayout="row">
+        <div class="legend-buildings" fxLayout="column" fxFlex="100">
+          <p class="thermal-text">Thermal Comfort Range</p>
+          <div class="thermal-div">
+            <img src="assets/img/thermal-comfort-range.svg" alt="thermal comfort ranges legend" class="thermal-legend" />
+          </div>
+        </div>
       </div>
     </div>
   </div>

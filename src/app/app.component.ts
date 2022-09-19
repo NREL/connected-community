@@ -330,8 +330,8 @@ export class AppComponent implements OnInit, AfterViewInit {
 
 
     let rangeDR = dateAxis.axisRanges.create();
-    rangeDR.date = new Date("09/26 12:00:00");
-    rangeDR.endDate = new Date("09-26 17:59:00");
+    rangeDR.date = new Date("06/25/19 12:00:00");
+    rangeDR.endDate = new Date("06/25/19 17:59:00");
     rangeDR.axisFill.fill = am4core.color("#64C204");
     rangeDR.axisFill.fillOpacity = 0.1;
     rangeDR.grid.strokeOpacity = 0;

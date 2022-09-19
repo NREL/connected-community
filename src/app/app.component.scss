@@ -7,6 +7,10 @@ $chartHeight: calc(55% - #{$controlHeight});
   width: 100%;
 }
 
+p {
+  font-size: 22px;
+}
+
 #controls {
   align-items: center;
   background-color: #565656;
@@ -68,6 +72,7 @@ $chartHeight: calc(55% - #{$controlHeight});
   padding-top:10px;
 
   .header-div {
+    padding-top:3px;
     border-bottom: 2px solid #E6E6E6;
   }
   .dr-line {
@@ -104,13 +109,14 @@ $chartHeight: calc(55% - #{$controlHeight});
 */
   }
 
-  > .legend-table {
+ /* > .legend-table {
       width: 15%;  
       padding: 15px;
-      padding-top: 7em;
+      padding-top: 2em;
       display: unset;
       font-size: 1.3em;
     }
+*/
 
   .legend-div {
       display: block;
@@ -135,7 +141,7 @@ $chartHeight: calc(55% - #{$controlHeight});
   > .legend-table {
       width: 50%;  
       padding: 15px;
-      padding-top: 3em;
+      padding-top: 1em;
       display: unset;
       font-size: 1.3em;
       align-items: center;
@@ -150,44 +156,41 @@ $chartHeight: calc(55% - #{$controlHeight});
     }
   }
 
-  .legend-ev {
-    padding: 15px;
-  }
-
   .graybg {
     background-color: #F2F2F2;
-    min-height:80px;
+    min-height:70px;
+    max-height: 70px;
     text-align: center;
+    padding: 2px;
   }
 
   .graytext {
     color: #8B8B8B;
-    font-size: 1.3em;
+    font-size: 1.1em;
     font-weight: normal;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
   }
 
   .legend-icon {
     height: 50px;
   }
 
-  .stats-table {
-    background-color: #eee;
-    margin-top: 5em;
-    align-items: left;
-    justify-content: left;
-    font-size: 0.9em;
+  .thermal-div {
+    text-align:center;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .thermal-legend {
+    height: 50%;
+    width: 50%;
+  }
 
-    th {
-      text-align: left;
-      padding-left: 10px;
-      padding-right: 30px;
-      font-weight: normal;
-      border-bottom: 1px solid #fff;
-    }
-    td {
-      border-bottom: 1px solid #fff;
-      padding-right: 10px;
-    }
+  .thermal-text {
+    font-weight: bold;
+    font-size: 22px;
   }
 
   .square {
@@ -196,18 +199,6 @@ $chartHeight: calc(55% - #{$controlHeight});
     height: 10px;
     margin: 0px 5px;
     display: inline-block;
-  }
-  .legend-evon {
-    background-color: #f26523;
-  }
-  .legend-evoff {
-    background-color: #c9c9c9;
-  }
-  .legend-acon {
-    background-color: #88CCEE;
-  }
-  .legend-acoff {
-    background-color: #4481C1;
   }
 }
 
@@ -235,6 +226,7 @@ $chartHeight: calc(55% - #{$controlHeight});
 
 .chart {
   overflow: hidden;
+  margin-top: 10px !important;
 
   ::ng-deep svg g[opacity='0.3'] {
     display: none;
