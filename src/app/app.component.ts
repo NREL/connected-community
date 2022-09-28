@@ -26,7 +26,7 @@ export class AppComponent implements OnInit, AfterViewInit {
   timeIndex = {
     current: 0,
     min: 0,
-    max: 840
+    max: 1440
   };
   dataDR: Record[] = [];
   data: Record[] = [];
@@ -228,10 +228,10 @@ export class AppComponent implements OnInit, AfterViewInit {
     const recordDR = this.dataDR[this.timeIndex.current];
     const recEV = this.dataEV[this.timeIndex.current];
 
-    // Hardcode DR window for now (12-6)
+    // Hardcode DR window for now (9-11)
     var drOn = 0;
     const hour = recordDR.Time.getHours();
-    if (hour > 11 && hour < 18) {
+    if (hour > 9 && hour < 11) {
       drOn = 1;
     }
 
@@ -330,8 +330,8 @@ export class AppComponent implements OnInit, AfterViewInit {
 
 
     let rangeDR = dateAxis.axisRanges.create();
-    rangeDR.date = new Date("06/25/19 12:00:00");
-    rangeDR.endDate = new Date("06/25/19 17:59:00");
+    rangeDR.date = new Date("06/25/19 09:00:00");
+    rangeDR.endDate = new Date("06/25/19 10:59:00");
     rangeDR.axisFill.fill = am4core.color("#64C204");
     rangeDR.axisFill.fillOpacity = 0.1;
     rangeDR.grid.strokeOpacity = 0;

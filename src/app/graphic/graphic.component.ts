@@ -29,21 +29,21 @@ export class GraphicComponent implements OnInit, OnChanges {
   }
 
   getClassOf(val:number) {
-    if (val <= -2.5) {
+    if (val <= -0.75) {
       return 'comfort1';
-    } else if (val > -2.5 && val <= -1.5) {
+    } else if (val > -0.75 && val <= -0.5) {
       return 'comfort2';
-    } else if (val > -1.5 && val <= -0.50) {
+    } else if (val > -0.5 && val <= -0.20) {
       return 'comfort3';
-    } else if (val > -0.50 && val <= 0.50) {
+    } else if (val > -0.20 && val <= 0.20) {
       return 'comfort4';
-    } else if (val > 0.50 && val <= 1.5) {
+    } else if (val > 0.20 && val <= 0.5) {
       return 'comfort5';
-    } else if (val > 1.5 && val <= 2) {
+    } else if (val > 0.5 && val <= 0.7) {
       return 'comfort6';  
-    } else if (val > 2 && val <= 2.5) {
+    } else if (val > 0.70 && val <= 0.9) {
       return 'comfort7';
-    } else if (val > 2.5) {
+    } else if (val > 0.9) {
       return 'comfort8';
     }
       else {
