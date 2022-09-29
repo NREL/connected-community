@@ -36,6 +36,10 @@ export class AppComponent implements OnInit, AfterViewInit {
   dfData!: GraphicRecord;
   baselinePeak = '';
   dfPeak = '';
+  infoEV = {
+    baseline: 0,
+    dr: 0
+  };
 
   private dataReady = new BehaviorSubject(false);
   private readonly $dataReady = this.dataReady.asObservable().pipe(distinctUntilChanged());
@@ -226,7 +230,6 @@ export class AppComponent implements OnInit, AfterViewInit {
   private updateGraphicRecords(): void {
     const recordB = this.data[this.timeIndex.current];
     const recordDR = this.dataDR[this.timeIndex.current];
-    const recEV = this.dataEV[this.timeIndex.current];
 
     // Hardcode DR window for now (9-11)
     var drOn = 0;
@@ -238,17 +241,22 @@ export class AppComponent implements OnInit, AfterViewInit {
     this.baseData = {
       Time: recordB.Time,
       Bldgs: recordB.Bldgs,
-      EVs: recEV,
       drOn: 0, // always off for baseline
       Total: recordB.Total
     };
     this.dfData = {
       Time: recordDR.Time,
       Bldgs: recordDR.Bldgs,
-      EVs: recEV,
       drOn: drOn,
       Total: recordDR.Total
     };
+
+    // does this change?
+    this.infoEV = { 
+      baseline: this.dataEV[this.timeIndex.current].Baseline,
+      dr: this.dataEV[this.timeIndex.current].DR
+    };
+
   }
 
   private getChartData(): void {
