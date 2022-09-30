@@ -1,10 +1,14 @@
 $controlHeight: 68px;
-$chartHeight: calc(60% - #{$controlHeight});
+$chartHeight: calc(55% - #{$controlHeight});
 
 :host {
   display: block;
   height: 100%;
   width: 100%;
+}
+
+p {
+  font-size: 22px;
 }
 
 #controls {
@@ -61,11 +65,25 @@ $chartHeight: calc(60% - #{$controlHeight});
   }
 }
 
-#vis {
+#header {
   background-color: #fff;
-  border-bottom: 1px #8e8e8e solid;
   display: flex;
-  height: 60%;
+  height: 3%;
+  padding-top:10px;
+
+  .header-div {
+    padding-top:3px;
+    border-bottom: 2px solid #E6E6E6;
+  }
+  .dr-line {
+    border-color: #64C204;
+  }
+
+  .text-header {
+    font-family:'Roboto-Regular';
+    font-size:22.7511px;
+    text-transform: capitalize;
+  }
 
   > div {
     align-items: center;
@@ -73,6 +91,14 @@ $chartHeight: calc(60% - #{$controlHeight});
     justify-content: center;
     width: 45%;
 
+    .dr-header {
+      color: #64C204;
+      fill: #64C204;
+    }
+
+
+
+/*
     &:first-child {
       border-right: 1px #8e8e8e solid;
     }
@@ -80,39 +106,91 @@ $chartHeight: calc(60% - #{$controlHeight});
     &:last-child {
       border-left: 1px #8e8e8e solid;
     }
+*/
   }
 
-  > .legend-table {
+ /* > .legend-table {
       width: 15%;  
       padding: 15px;
-      padding-top: 7em;
+      padding-top: 2em;
       display: unset;
       font-size: 1.3em;
     }
+*/
 
   .legend-div {
       display: block;
       padding-bottom: 5px; 
   }
+}
 
-  .stats-table {
-    background-color: #eee;
-    margin-top: 5em;
-    align-items: left;
-    justify-content: left;
-    font-size: 0.9em;
+#vis {
+  background-color: #fff;
+  border-bottom: 1px #8e8e8e solid;
+  display: flex;
+  height: 65%;
 
-    th {
-      text-align: left;
-      padding-left: 10px;
-      padding-right: 30px;
-      font-weight: normal;
-      border-bottom: 1px solid #fff;
+  > div {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    width: 40%;
+
+  }
+
+  > .legend-table {
+      width: 50%;  
+      padding: 15px;
+      padding-top: 1em;
+      display: unset;
+      font-size: 1.3em;
+      align-items: center;
+      justify-content: center;
     }
-    td {
-      border-bottom: 1px solid #fff;
-      padding-right: 10px;
+
+  .legend-buildings {
+    padding: 15px;
+    text-align: center;
+    align-items: center;
+    
+    p {
+      text-align: center;
+      line-height: 1.2em;
     }
+    img {
+      text-align: center;
+    }
+  }
+
+  .graybg {
+    background-color: #F2F2F2;
+    min-height:70px;
+    max-height: 70px;
+    text-align: center;
+    padding: 2px;
+  }
+
+  .graytext {
+    color: #8B8B8B;
+    font-size: 1.1em;
+    font-weight: normal;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .legend-icon {
+    height: 50px;
+  }
+
+  .thermal-legend {
+    height: 46%;
+    width: 46%;
+  }
+
+  .thermal-text {
+    font-weight: bold;
+    font-size: 22px;
   }
 
   .square {
@@ -122,18 +200,10 @@ $chartHeight: calc(60% - #{$controlHeight});
     margin: 0px 5px;
     display: inline-block;
   }
-  .legend-evon {
-    background-color: #f26523;
-  }
-  .legend-evoff {
-    background-color: #c9c9c9;
-  }
-  .legend-acon {
-    background-color: #88CCEE;
-  }
-  .legend-acoff {
-    background-color: #4481C1;
-  }
+}
+
+.big-text {
+  font-size: 1.5em;
 }
 
 #charts {
@@ -156,6 +226,7 @@ $chartHeight: calc(60% - #{$controlHeight});
 
 .chart {
   overflow: hidden;
+  margin-top: 10px !important;
 
   ::ng-deep svg g[opacity='0.3'] {
     display: none;

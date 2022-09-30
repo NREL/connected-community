@@ -26,16 +26,25 @@ export class AppComponent implements OnInit, AfterViewInit {
   timeIndex = {
     current: 0,
     min: 0,
-    max: 840
+    max: 1440
   };
   dataDR: Record[] = [];
   data: Record[] = [];
   dataEV!: any[];
+  dataAC!: any[];
   chartData: ChartRecord[] = [];
   baseData!: GraphicRecord;
   dfData!: GraphicRecord;
   baselinePeak = '';
   dfPeak = '';
+  infoEV = {
+    baseline: 0,
+    dr: 0
+  };
+  infoAC = {
+    baseline: 0,
+    dr: 0
+  };
 
   private dataReady = new BehaviorSubject(false);
   private readonly $dataReady = this.dataReady.asObservable().pipe(distinctUntilChanged());
@@ -120,6 +129,16 @@ export class AppComponent implements OnInit, AfterViewInit {
       skipEmptyLines: true,
       complete: result => {
         this.dataEV = result.data;
+      }
+    });
+    // parse AC data
+    this.papa.parse('assets/testData-AC.csv', {
+      download: true,
+      dynamicTyping: true,
+      header: true,
+      skipEmptyLines: true,
+      complete: result => {
+        this.dataAC = result.data;
       }
     });
     // parse 2 separate CSVs (this.data & this.dataDR)
@@ -226,28 +245,33 @@ export class AppComponent implements OnInit, AfterViewInit {
   private updateGraphicRecords(): void {
     const recordB = this.data[this.timeIndex.current];
     const recordDR = this.dataDR[this.timeIndex.current];
-    const recEV = this.dataEV[this.timeIndex.current];
 
-    // Hardcode DR window for now (12-6)
+    // Hardcode DR window for now (9-11)
     var drOn = 0;
     const hour = recordDR.Time.getHours();
-    if (hour > 11 && hour < 18) {
+    if (hour > 9 && hour < 11) {
       drOn = 1;
     }
 
     this.baseData = {
       Time: recordB.Time,
       Bldgs: recordB.Bldgs,
-      EVs: recEV,
       drOn: 0, // always off for baseline
       Total: recordB.Total
     };
     this.dfData = {
       Time: recordDR.Time,
       Bldgs: recordDR.Bldgs,
-      EVs: recEV,
       drOn: drOn,
       Total: recordDR.Total
+    };
+    this.infoEV = { 
+      baseline: this.dataEV[this.timeIndex.current].Baseline,
+      dr: this.dataEV[this.timeIndex.current].DR
+    };
+    this.infoAC = {
+      baseline: this.dataAC[this.timeIndex.current].Baseline,
+      dr: this.dataAC[this.timeIndex.current].DR
     };
   }
 
@@ -292,7 +316,7 @@ export class AppComponent implements OnInit, AfterViewInit {
 
     const kwAxis = chart.yAxes.push(new am4charts.ValueAxis());
     kwAxis.cursorTooltipEnabled = false;
-    kwAxis.max = 50;
+    kwAxis.max = 100000;
     kwAxis.min = 0;
     kwAxis.renderer.grid.template.disabled = true;
     kwAxis.renderer.labels.template.fill = am4core.color('#666');
@@ -330,8 +354,8 @@ export class AppComponent implements OnInit, AfterViewInit {
 
 
     let rangeDR = dateAxis.axisRanges.create();
-    rangeDR.date = new Date("09/26 12:00:00");
-    rangeDR.endDate = new Date("09-26 17:59:00");
+    rangeDR.date = new Date("06/25/19 09:00:00");
+    rangeDR.endDate = new Date("06/25/19 10:59:00");
     rangeDR.axisFill.fill = am4core.color("#64C204");
     rangeDR.axisFill.fillOpacity = 0.1;
     rangeDR.grid.strokeOpacity = 0;

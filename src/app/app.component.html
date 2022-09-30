@@ -1,22 +1,55 @@
+<div id="header">
+  <div class="header-div">
+    <h2 class="text-header">BASELINE</h2>
+  </div>
+  <div class="legend-table"></div>
+  <div class="header-div">
+    <h2 class="text-header dr-header">MODIFIED - DR</h2>
+  </div>
+
+</div>
 <div id="vis">
   <div>
     <app-graphic type="baseline" [data]="baseData"></app-graphic>
   </div>
   <div class="legend-table">
-
-    <div class="legend-div"><div class="square legend-evon"></div> Electric Vehicle &nbsp;<strong>ON</strong></div>
-    <!-- <div class="legend-div"><div class="square legend-evoff"></div> Electric Vehicle &nbsp;<strong>OFF</strong></div> -->
-    <div class="legend-div"><div class="square legend-acon"></div> Air-conditioning &nbsp;<strong>ON</strong></div>
-    <!-- <div class="legend-div"><div class="square legend-acoff"></div> Air-conditioning &nbsp;<strong>OFF</strong></div> -->
-
-    <table class="stats-table">
-      <tr><th>Buildings Total</th><td>200</td></tr>
-      <tr><th>Offices</th><td>2</td></tr>
-      <tr><th>Single Family Homes</th><td>30</td></tr>
-      <tr><th>Buildings with AC</th><td>19</td></tr>
-      <tr><th>Electric Vehicles</th><td>59</td></tr>
-    </table>
-
+    <div class="legend-buildings">
+      <p><span class="big-text">148</span>  Buildings</p>
+    </div>
+    <div fxLayout="column" fxLayoutGap="5px">
+      <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="5px">
+        <div class="graybg" fxFlex="35" fxLayout="row" fxLayoutAlign="space-between center">
+          <div fxFlex="40" ><img class="legend-icon" src="assets/img/evcharging.svg" alt="ev charging icon" /></div>
+          <div fxFlex="30" class="big-text">{{ infoEV.baseline }}</div>
+        </div>
+        <div class="graybg" fxFlex="30" fxLayout="row" fxLayoutAlign="space-between center">
+          <p class="graytext" style="text-align: center;">Electric Vehicles Charging</p>
+        </div>
+        <div class="graybg" fxFlex="35" fxLayout="row" fxLayoutAlign="space-between center">
+          <div fxFlex="30" class="big-text">{{ infoEV.dr }}</div>
+          <div fxFlex="40" ><img class="legend-icon" src="assets/img/evcharging.svg" alt="ev charging icon" /></div>
+        </div>         
+      </div>
+      <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="5px">
+        <div class="graybg" fxFlex="35" fxLayout="row" fxLayoutAlign="space-between center">
+          <div fxFlex="40" ><img class="legend-icon" src="assets/img/acon.svg" alt="AC on icon" /></div>
+          <div fxFlex="30" class="big-text">{{ infoAC.baseline }}</div>
+        </div>
+        <div class="graybg" fxFlex="30" fxLayout="row" fxLayoutAlign="space-between center">
+          <p class="graytext">Buildings with Air Conditioning Active</p>
+        </div>
+        <div class="graybg" fxFlex="35" fxLayout="row" fxLayoutAlign="space-between center">
+          <div fxFlex="30" class="big-text">{{ infoAC.dr }}</div>
+          <div fxFlex="40" ><img class="legend-icon" src="assets/img/acon.svg" alt="AC on icon" /></div>
+        </div>         
+      </div>
+      <div fxLayout="row">
+        <div class="legend-buildings" fxLayout="column" fxFlex="100">
+          <p class="thermal-text">Thermal Comfort Range (PMV)</p>
+          <img src="assets/img/thermal-comfort-range.svg" alt="thermal comfort ranges legend" class="thermal-legend" />
+        </div>
+      </div>
+    </div>
   </div>
   <div>
     <app-graphic type="demand flexibility" [data]="dfData"></app-graphic>
