@@ -31,12 +31,17 @@ export class AppComponent implements OnInit, AfterViewInit {
   dataDR: Record[] = [];
   data: Record[] = [];
   dataEV!: any[];
+  dataAC!: any[];
   chartData: ChartRecord[] = [];
   baseData!: GraphicRecord;
   dfData!: GraphicRecord;
   baselinePeak = '';
   dfPeak = '';
   infoEV = {
+    baseline: 0,
+    dr: 0
+  };
+  infoAC = {
     baseline: 0,
     dr: 0
   };
@@ -124,6 +129,16 @@ export class AppComponent implements OnInit, AfterViewInit {
       skipEmptyLines: true,
       complete: result => {
         this.dataEV = result.data;
+      }
+    });
+    // parse AC data
+    this.papa.parse('assets/testData-AC.csv', {
+      download: true,
+      dynamicTyping: true,
+      header: true,
+      skipEmptyLines: true,
+      complete: result => {
+        this.dataAC = result.data;
       }
     });
     // parse 2 separate CSVs (this.data & this.dataDR)
@@ -250,13 +265,14 @@ export class AppComponent implements OnInit, AfterViewInit {
       drOn: drOn,
       Total: recordDR.Total
     };
-
-    // does this change?
     this.infoEV = { 
       baseline: this.dataEV[this.timeIndex.current].Baseline,
       dr: this.dataEV[this.timeIndex.current].DR
     };
-
+    this.infoAC = {
+      baseline: this.dataAC[this.timeIndex.current].Baseline,
+      dr: this.dataAC[this.timeIndex.current].DR
+    };
   }
 
   private getChartData(): void {

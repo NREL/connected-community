@@ -31,6 +31,7 @@
               "src/assets/testData-Base.csv",
               "src/assets/testData-DR.csv",
               "src/assets/testData-EV.csv",
+              "src/assets/testData-AC.csv",
               "src/assets/img/evcharging.svg",
               "src/assets/img/acon.svg",
               "src/assets/img/thermal-comfort-range.svg"
@@ -108,6 +109,7 @@
               "src/assets/testData-Base.csv",
               "src/assets/testData-DR.csv",
               "src/assets/testData-EV.csv",
+              "src/assets/testData-AC.csv",
               "src/assets/img/evcharging.svg",
               "src/assets/img/acon.svg",
               "src/assets/img/thermal-comfort-range.svg"
